@@ -832,8 +832,7 @@ public class CarrierConfigLoader extends ICarrierConfigLoader.Stub {
     private void updateCarrierNameForPhoneId(int phoneId) {
         Phone phone = PhoneFactory.getPhone(phoneId);
         if (phone != null) {
-            ServiceStateTracker serviceStateTracker = phone.getServiceStateTracker();
-            serviceStateTracker.updateSpnDisplay();
+            broadcastConfigChangedIntent(phoneId);
         }
     }
 
